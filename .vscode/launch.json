@@ -1,0 +1,53 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Expo: start",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npx expo start"
+    },
+    {
+      "name": "Expo: iOS simulator",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npx expo start --ios"
+    },
+    {
+      "name": "Expo: Android emulator",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npx expo start --android"
+    },
+    {
+      "name": "Expo: pilih iOS simulator",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npx expo run:ios --device"
+    },
+    {
+      "name": "Expo: pilih Android emulator",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npx expo run:android --device"
+    },
+    {
+      "name": "Nyalakan iOS simulator",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "IFS=$'\\n'; select d in $(xcrun simctl list devices available | grep -E '(iPhone|iPad)' | sed 's/^ *//'); do xcrun simctl boot \"$(echo \"$d\" | grep -oE '[0-9A-F-]{36}')\"; open -a Simulator; break; done"
+    },
+    {
+      "name": "Nyalakan Android emulator",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "select a in $(~/Library/Android/sdk/emulator/emulator -list-avds); do nohup ~/Library/Android/sdk/emulator/emulator -avd \"$a\" >/dev/null 2>&1 & break; done"
+    },
+    {
+      "name": "Calc check",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "bun src/calc.check.ts"
+    }
+  ]
+}
